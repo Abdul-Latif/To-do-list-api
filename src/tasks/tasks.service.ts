@@ -25,7 +25,7 @@ export class TasksService {
     async updateTask(id: number, updateTaskDto: UpdateTaskDto) {
         const task = await this.taskRepository.findOneBy({ id })
         if (!task) throw new BadRequestException('there is no task like that create a new one!')
-        Object.assign(task, updateTaskDto)
+        Object.assign(task, updateTaskDto) //target => source
         return this.taskRepository.save(task)
     }
 
